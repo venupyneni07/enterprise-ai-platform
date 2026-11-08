@@ -1,0 +1,24 @@
+terraform {
+  required_version = ">= 1.5.0"
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region              = "ap-south-1"
+  profile             = "enterprise-ai-dev-sso"
+  allowed_account_ids = ["367986505593"]
+
+  default_tags {
+    tags = {
+      Project     = "enterprise-ai-platform"
+      Environment = "dev"
+      ManagedBy   = "Terraform"
+    }
+  }
+}
