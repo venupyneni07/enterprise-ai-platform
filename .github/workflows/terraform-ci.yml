@@ -44,3 +44,12 @@ jobs:
         run: |
           terraform -chdir=infra/terraform/environments/dev validate \
             -no-color
+      - name: Trivy Terraform Security Gate
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: "config"
+          scan-ref: "infra/terraform/environments/dev"
+          format: "table"
+          severity: "HIGH,CRITICAL"
+          exit-code: "1"
+          version: "v0.76.2"
