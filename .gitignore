@@ -27,3 +27,6 @@ crash.*.log
 # IDE
 .vscode/
 .idea/
+
+# Pytest
+.pytest_cache/
